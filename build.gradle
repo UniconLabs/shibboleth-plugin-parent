@@ -1,0 +1,87 @@
+plugins {
+    id 'java'
+    id 'distribution'
+    id 'signing'
+}
+
+repositories {
+    maven { url 'https://build.shibboleth.net/nexus/content/groups/public' }
+    mavenCentral()
+}
+
+def loadProperties() {
+    def config = new ConfigSlurper().parse(file('config.groovy').toURL())
+    project.ext.config = config
+}
+
+task printProperties {
+    loadProperties()
+    println "commans lang3:  $config.common.commonslang3.version"
+}
+
+processResources {
+    from ('src/main/java') {
+        include "**/*.properties"
+    }
+}
+
+clean {
+    delete (layout.projectDirectory.dir("src/dist/bootstrap/plugin.properties"))
+    delete fileTree(layout.projectDirectory.dir("src/dist/webapp/WEB-INF/lib")) {
+        include "**/*.jar"
+    }
+}
+
+jar {
+    manifest {
+        attributes "Name": "net/unicon/iam/shibboleth/storage/redis/plugin/",
+                "Implementation-Vendor": "unicon.net",
+                "Implementation-Version": "${project.version}",
+                "Implementation-Title": "${project.name}"
+
+    }
+}
+jar.finalizedBy("buildPluginArtifacts")
+
+task buildPluginArtifacts(type: GradleBuild) {
+    group 'Build'
+    description 'Build the deployable artifacts for the plugin'
+
+    copy {
+        from layout.projectDirectory.dir("src/main/java/net/unicon/iam/shibboleth/storage/redis/plugin/plugin.properties")
+        into layout.projectDirectory.dir("src/dist/bootstrap")
+    }
+    copy {
+        from layout.buildDirectory.dir("libs/${project.name}-${project.version}.jar")
+        into layout.projectDirectory.dir("src/dist/webapp/WEB-INF/lib")
+    }
+    copy {
+        from { project.configurations.runtimeClasspath }
+        into ('src/dist/webapp/WEB-INF/lib')
+    }
+    finalizedBy distTar {
+        archivesBaseName = "${project.name}"
+        archiveExtension = 'tar.gz'
+        compression = Compression.GZIP
+
+        from layout.projectDirectory.dir("src/dist/")
+        exclude "**/.gitkeep"
+        exclude "/${project.name}-${project.version}"
+        finalizedBy distZip {
+            archivesBaseName = "${project.name}"
+
+            from layout.projectDirectory.dir("src/dist/")
+            exclude "**/.gitkeep"
+            exclude "/${project.name}-${project.version}"
+        }
+    }
+}
+
+artifacts {
+    archives layout.buildDirectory.dir("distributions/${project.name}-${project.version}.zip")
+    archives layout.buildDirectory.dir("distributions/${project.name}-${project.version}.tar.gz")
+}
+
+signing {
+    sign configurations.archives
+}
