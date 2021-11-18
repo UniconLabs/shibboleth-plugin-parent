@@ -10,6 +10,7 @@ common {
     junit.jupiter.version='5.8.1'
     ldaptive.version='2.1.0'
     lombok.version='1.18.22'
+    netty.version='4.1.65.Final'
     servlet.version='4.0.1'
     shibboleth.version='4.1.4'
     spring.version='5.3.9'

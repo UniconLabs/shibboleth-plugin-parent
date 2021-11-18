@@ -7,11 +7,6 @@ buildscript {
     }
 }
 
-repositories {
-    maven { url 'https://build.shibboleth.net/nexus/content/groups/public' }
-    mavenCentral()
-}
-
 processResources {
     from ('src/main/java') {
         include "**/*.properties"
