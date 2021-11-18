@@ -5,10 +5,15 @@ buildscript {
     dependencies {
         classpath 'org.codehaus.groovy:groovy-all:3.0.9'
     }
-    plugins {
-        id 'distribution'
-        id 'signing'
-    }
+//    plugins {
+//        id 'distribution'
+//        id 'signing'
+//    }
+}
+
+apply {
+    plugin("distribution")
+    plugin("signing")
 }
 
 repositories {
