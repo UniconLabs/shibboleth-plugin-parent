@@ -11,6 +11,7 @@ common {
     ldaptive.version='2.1.0'
     lombok.version='1.18.22'
     netty.version='4.1.65.Final'
+    opensaml.version='3.4.0'
     servlet.version='4.0.1'
     shibboleth.version='4.1.4'
     spring.version='5.3.9'
