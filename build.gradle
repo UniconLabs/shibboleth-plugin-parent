@@ -1,8 +1,8 @@
-plugins {
-    id 'java'
-    id 'distribution'
-    id 'signing'
-}
+//plugins {
+//    id 'java'
+//    id 'distribution'
+//    id 'signing'
+//}
 
 repositories {
     maven { url 'https://build.shibboleth.net/nexus/content/groups/public' }
