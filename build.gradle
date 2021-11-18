@@ -13,7 +13,7 @@ repositories {
     mavenCentral()
 }
 
-def loadProperties() {
+task loadProperties(type: GradleBuild) {
     def config = new ConfigSlurper().parse(new URL("https://raw.githubusercontent.com/UniconLabs/shibboleth-plugin-parent/develop/config.groovy"))
     project.ext.config = config
 }
