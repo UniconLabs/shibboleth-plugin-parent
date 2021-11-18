@@ -1,10 +1,10 @@
 buildscript {
-//    repositories {
-//        mavenLocal()
-//    }
-//    dependencies {
-//        classpath ""
-//    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.codehaus.groovy:groovy-all:3.0.9'
+    }
 }
 
 repositories {
