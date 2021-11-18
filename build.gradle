@@ -17,11 +17,6 @@ def loadProperties() {
     project.ext.config = config
 }
 
-task printProperties {
-    loadProperties()
-    println "commans lang3:  $config.common.commonslang3.version"
-}
-
 processResources {
     from ('src/main/java') {
         include "**/*.properties"
