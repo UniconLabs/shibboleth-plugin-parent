@@ -48,11 +48,11 @@ will **not** override local values that may be configured in your project's grad
 ### Copy files from this project
 Copy these two files from this project root to your project's root:
 **iamtest.gpg, update.properties** 
-####update.properties file
+#### update.properties file
 You will need to modify the **update.properties** appropriately,
 see: https://shibboleth.atlassian.net/wiki/spaces/IDP4/pages/1296760857/PluginDevelopment#Maintaining-the-Update-Property-File
 
-####You can skip the following if you have a production GPG signing file.
+#### You can skip the following if you have a production GPG signing file.
 iamtest.gpg is a file that can be used to validate the build (it is the security file used to sign the artifacts).
 This file is not intended for use to sign and distribute production ready artifacts and should be replaced by the
 appropriate real GPG file.
