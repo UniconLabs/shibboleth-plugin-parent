@@ -5,6 +5,7 @@ buildscript {
     dependencies {
         classpath 'org.codehaus.groovy:groovy-all:3.0.9'
     }
+    loadProperties()
 }
 
 repositories {
