@@ -1,8 +1,11 @@
-//plugins {
-//    id 'java'
-//    id 'distribution'
-//    id 'signing'
-//}
+buildscript {
+//    repositories {
+//        mavenLocal()
+//    }
+//    dependencies {
+//        classpath ""
+//    }
+}
 
 repositories {
     maven { url 'https://build.shibboleth.net/nexus/content/groups/public' }
