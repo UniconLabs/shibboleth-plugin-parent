@@ -5,7 +5,6 @@ buildscript {
     dependencies {
         classpath 'org.codehaus.groovy:groovy-all:3.0.9'
     }
-    loadProperties()
 }
 
 repositories {
@@ -13,7 +12,7 @@ repositories {
     mavenCentral()
 }
 
-task loadProperties(type: GradleBuild) {
+def loadProperties() {
     def config = new ConfigSlurper().parse(new URL("https://raw.githubusercontent.com/UniconLabs/shibboleth-plugin-parent/develop/config.groovy"))
     project.ext.config = config
 }
@@ -25,6 +24,7 @@ processResources {
 }
 
 clean {
+    loadProperties()
     delete (layout.projectDirectory.dir("src/dist/bootstrap/plugin.properties"))
     delete fileTree(layout.projectDirectory.dir("src/dist/webapp/WEB-INF/lib")) {
         include "**/*.jar"
