@@ -22,7 +22,7 @@ clean {
 
 jar {
     manifest {
-        attributes "Name": "net/unicon/iam/shibboleth/storage/redis/plugin/",
+        attributes "Name": "${project.'plugin.package'}",
                 "Implementation-Vendor": "unicon.net",
                 "Implementation-Version": "${project.version}",
                 "Implementation-Title": "${project.name}"
@@ -36,7 +36,7 @@ task buildPluginArtifacts(type: GradleBuild) {
     description 'Build the deployable artifacts for the plugin'
 
     copy {
-        from layout.projectDirectory.dir("src/main/java/net/unicon/iam/shibboleth/storage/redis/plugin/plugin.properties")
+        from layout.projectDirectory.dir("src/main/java/${project.'plugin.package'}plugin.properties")
         into layout.projectDirectory.dir("src/dist/bootstrap")
     }
     copy {

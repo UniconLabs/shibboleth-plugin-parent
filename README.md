@@ -45,6 +45,9 @@ will **not** override local values that may be configured in your project's grad
     compileOnly "ch.qos.logback:logback-core:${project.'logback.version'}"
 ```
 
+### Add the following properties to your gradle.properties file
+* **plugin.package** - this should be the plugin package/location ( ie org/example/plugin/ ) and must end with a trailing slash
+
 ### Copy files from this project
 Copy these two files from this project root to your project's root:
 **iamtest.gpg, update.properties** 
