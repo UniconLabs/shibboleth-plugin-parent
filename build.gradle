@@ -7,6 +7,13 @@ buildscript {
     }
 }
 
+apply {
+    plugin {
+        id 'distribution'
+        id 'signing'
+    }
+}
+
 repositories {
     maven { url 'https://build.shibboleth.net/nexus/content/groups/public' }
     mavenCentral()
