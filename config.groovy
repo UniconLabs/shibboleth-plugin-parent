@@ -2,9 +2,9 @@ common {
     group='net.unicon.iam.shibboleth'
 
     //# Library Versions
-    antlr.version=2.7.7
-    bytebuddy.version=1.10.21
-    classmate.version=1.5.1
+    antlr.version='2.7.7'
+    bytebuddy.version='1.10.21'
+    classmate.version='1.5.1'
     commonslang3.version='3.11'
     guava.version='31.0.1-jre'
     hibernate.version='5.4.29.Final'
