@@ -18,6 +18,7 @@ common {
     opensaml.version='3.4.0'
     servlet.version='4.0.1'
     shibboleth.version='4.1.4'
+    slf4j.version='1.7.30'
     spring.version='5.3.9'
     springboot.version='2.4.2'
     springdata.version='2.4.3'
