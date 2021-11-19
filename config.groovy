@@ -1,7 +1,7 @@
 common {
     group='net.unicon.iam.shibboleth'
 
-    //# Library Versions
+    //# Library Versions will try to match with Shib IDP libraries as shown at the bottom
     antlr.version='2.7.7'
     bytebuddy.version='1.10.21'
     classmate.version='1.5.1'
@@ -12,7 +12,7 @@ common {
     jackson.version='2.13.0'
     javax.mail.version='1.6.2'
     junit.jupiter.version='5.8.1'
-    ldaptive.version='2.1.0'
+    ldaptive.version='1.3.0'
     lombok.version='1.18.22'
     netty.version='4.1.65.Final'
     opensaml.version='3.4.0'
