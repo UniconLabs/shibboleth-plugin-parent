@@ -11,6 +11,7 @@ common {
 
     jackson.version='2.13.0'
     javax.mail.version='1.6.2'
+    javax.persistence.version='2.2'
     junit.jupiter.version='5.8.1'
     ldaptive.version='1.3.0'
     lombok.version='1.18.22'
